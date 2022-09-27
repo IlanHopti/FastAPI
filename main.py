@@ -40,7 +40,13 @@ def process_items(items: list[str]):
         print(item)
 
 
+# Tuple and Set types #
+def process_items_tuple_set(items_t: tuple[int, int, str], items_s: set[bytes]):
+    return items_t, items_s
+
+
 print(get_full_name("john", "doe"))
 print(get_name_with_age("john", 20))
 print(get_items("Hello", 1, 2.0, True, b"World"))
 print(process_items(["a", "b", "c"]))
+print(process_items_tuple_set((1, 2, "a"), {b"1", b"2", b"3"}))

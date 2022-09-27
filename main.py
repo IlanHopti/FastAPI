@@ -52,7 +52,7 @@ def process_items(items: list[str]):
         print(item)
 
 
-print(process_items(["a", "b", "c"]))
+process_items(["a", "b", "c"])
 
 
 # Tuple and Set types #
@@ -72,7 +72,7 @@ def process_items_dict(prices: dict[str, float]):
         print(item_price)
 
 
-print(process_items_dict({"a": 1.0, "b": 2.0, "c": 3.0}))
+process_items_dict({"a": 1.0, "b": 2.0, "c": 3.0})
 
 
 # Union types #
@@ -81,7 +81,7 @@ def process_item_union(item: int | str):
     print(item)
 
 
-print(process_item_union(1))
+process_item_union(1)
 
 
 # Possible types #
@@ -93,5 +93,5 @@ def say_hi(name: str | None = None):
         print("Hello World")
 
 
-print(say_hi("john"))
-print(say_hi())
+say_hi("john")
+say_hi()

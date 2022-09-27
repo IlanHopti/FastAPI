@@ -135,7 +135,7 @@ print(user.id)
 # Tutorial - User Guide - Path Parameters #
 
 
-@app.get("/items/{item_id}")
+@app.get("/item/{item_id}")
 def read_item(item_id: int):
     return {"item_id": item_id}
 
@@ -184,3 +184,14 @@ async def get_model(model_name: ModelName):
 @app.get("/files/{file_path:path}")
 async def read_file(file_path: str):
     return {"file_path": file_path}
+
+
+# Tutorial - User Guide - Query parameters #
+
+
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
+
+@app.get("/items/")
+async def read_item(skip: int = 0, limit: int = 10):
+    return fake_items_db[skip : skip + limit]

@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from datetime import datetime
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -95,3 +97,35 @@ def say_hi(name: str | None = None):
 
 say_hi("john")
 say_hi()
+
+
+# Classes as types #
+
+class Person:
+    def __init__(self, name: str):
+        self.name = name
+
+
+def get_person_name(one_person: Person):
+    return one_person.name
+
+
+# Pydantic models #
+
+class User(BaseModel):
+    id: int
+    name = "John Doe"
+    signup_ts: datetime | None = None
+    friends: list[int] = []
+
+
+external_data = {
+    "id": "123",
+    "signup_ts": "2017-06-01 12:22",
+    "friends": [1, "2", b"3"],
+}
+user = User(**external_data)
+print(user)
+# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]
+print(user.id)
+# > 123

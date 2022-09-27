@@ -45,8 +45,16 @@ def process_items_tuple_set(items_t: tuple[int, int, str], items_s: set[bytes]):
     return items_t, items_s
 
 
+# Dict types #
+def process_items_dict(prices: dict[str, float]):
+    for item_name, item_price in prices.items():
+        print(item_name)
+        print(item_price)
+
+
 print(get_full_name("john", "doe"))
 print(get_name_with_age("john", 20))
 print(get_items("Hello", 1, 2.0, True, b"World"))
 print(process_items(["a", "b", "c"]))
 print(process_items_tuple_set((1, 2, "a"), {b"1", b"2", b"3"}))
+print(process_items_dict({"a": 1.0, "b": 2.0, "c": 3.0}))

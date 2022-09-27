@@ -34,6 +34,13 @@ def get_items(item_a: str, item_b: int, item_c: float, item_d: bool, item_e: byt
     return item_a, item_b, item_c, item_d, item_d, item_e
 
 
+# List types #
+def process_items(items: list[str]):
+    for item in items:
+        print(item)
+
+
 print(get_full_name("john", "doe"))
 print(get_name_with_age("john", 20))
 print(get_items("Hello", 1, 2.0, True, b"World"))
+print(process_items(["a", "b", "c"]))

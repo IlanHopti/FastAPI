@@ -82,3 +82,16 @@ def process_item_union(item: int | str):
 
 
 print(process_item_union(1))
+
+
+# Possible types #
+
+def say_hi(name: str | None = None):
+    if name is not None:
+        print(f"Hey {name}!")
+    else:
+        print("Hello World")
+
+
+print(say_hi("john"))
+print(say_hi())

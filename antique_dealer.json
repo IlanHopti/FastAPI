@@ -1,0 +1,108 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Queen Ticket",
+      "description": "A ticket to the Queen concert",
+      "year": "1986",
+      "status": "good",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "Shirt",
+      "description": "Shirt which was worn by Freddie Mercury",
+      "year": "1986",
+      "status": "good",
+      "price": null
+    },
+    {
+      "id": 3,
+      "name": "Vinyl Madonna",
+      "description": "Vinyl of Madonna",
+      "year": "2004",
+      "status": "damage",
+      "price": 30
+    },
+    {
+      "id": 4,
+      "name": "Pendulum",
+      "description": "Pendulum from a historic castle",
+      "year": "1820",
+      "status": "bad",
+      "price": 240
+    },
+    {
+      "id": 5,
+      "name": "Piano",
+      "description": "Piano from beatles concert",
+      "year": "1965",
+      "status": "damage",
+      "price": 360
+    },
+    {
+      "id": 6,
+      "name": "Vinyl Madonna",
+      "description": "Vinyl of Madonna",
+      "year": "2004",
+      "status": "damage",
+      "price": 30
+    },
+    {
+      "id": 7,
+      "name": "Vinyl Queen",
+      "description": "Vinyl of Queen",
+      "year": "1986",
+      "status": "good",
+      "price": 30
+    },
+    {
+      "id": 8,
+      "name": "Vinyl Madonna",
+      "description": "Vinyl of Madonna",
+      "year": "2004",
+      "status": "damage",
+      "price": 30
+    },
+    {
+      "id": 9,
+      "name": "Vinyl Queen",
+      "description": "Vinyl of Queen",
+      "year": "1986",
+      "status": "good",
+      "price": 30
+    },
+    {
+      "id": 10,
+      "name": "Vinyl Madonna",
+      "description": "Vinyl of Madonna",
+      "year": "2004",
+      "status": "damage",
+      "price": 30
+    },
+    {
+      "id": 11,
+      "name": "Vinyl Queen",
+      "description": "Vinyl of Queen",
+      "year": "1986",
+      "status": "good",
+      "price": 30
+    },
+    {
+      "id": 12,
+      "name": "Vinyl Madonna",
+      "description": "Vinyl of Madonna",
+      "year": "2004",
+      "status": "damage",
+      "price": 30
+    },
+    {
+      "id": 13,
+      "name": "Vinyl Queen",
+      "description": "Vinyl of Queen",
+      "year": "1986",
+      "status": "good",
+      "price": 30
+    }
+  ]
+}

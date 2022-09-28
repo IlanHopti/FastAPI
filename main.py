@@ -23,4 +23,4 @@ async def say_hello(client_first_name: str):
 
 @app.get("/antique_dealer")
 async def get_antique_dealer():
-    return data
+    return data["commands"]

@@ -1,152 +1,134 @@
 {
-  "products": [
-    {
-      "product_id": 1,
-      "product_name": "Queen Ticket",
-      "product_description": "A ticket to the Queen concert",
-      "product_year": "1986",
-      "product_status": "good",
-      "product_price": 100
-    },
-    {
-      "product_id": 2,
-      "product_name": "Shirt",
-      "product_description": "Shirt which was worn by Freddie Mercury",
-      "product_year": "1986",
-      "product_status": "good",
-      "product_price": null
-    },
-    {
-      "product_id": 3,
-      "product_name": "Vinyl Madonna",
-      "product_description": "Vinyl of Madonna",
-      "product_year": "2004",
-      "product_status": "damage",
-      "product_price": 30
-    },
-    {
-      "product_id": 4,
-      "product_name": "Pendulum",
-      "product_description": "Pendulum from a historic castle",
-      "product_year": "1820",
-      "product_status": "bad",
-      "product_price": 240
-    },
-    {
-      "product_id": 5,
-      "product_name": "Piano",
-      "product_description": "Piano from beatles concert",
-      "product_year": "1965",
-      "product_status": "damage",
-      "product_price": 360
-    },
-    {
-      "product_id": 6,
-      "product_name": "Vinyl Madonna",
-      "product_description": "Vinyl of Madonna",
-      "product_year": "2004",
-      "product_status": "damage",
-      "product_price": 30
-    }
-  ],
-  "clients": [
-    {
-      "client_id": 1,
-      "client_first_name": "John",
-      "client_last_name": "Doe",
-      "client_email": "john.doe@gmail.com"
-    },
-    {
-      "client_id": 2,
-      "client_first_name": "Mathieu",
-      "client_last_name": "Ferdinand",
-      "client_email": "mathieu.ferdinand@gmail.com"
-    },
-    {
-      "client_id": 3,
-      "client_first_name": "Jean",
-      "client_last_name": "Dupont",
-      "client_email": "jeant.dupont@gmail.com"
-    },
-    {
-      "client_id": 4,
-      "client_first_name": "Pierre",
-      "client_last_name": "Dupont",
-      "client_email": "pierre.dupont@gmail.com"
-    }
-  ],
-  "commands" : [
-    {
-      "command_id": 1,
-      "client_id": 1,
-      "product_id": 1,
-      "product_name": "Queen Ticket",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 2,
-      "client_id": 1,
-      "product_id": 2,
-      "product_name": "Shirt",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 3,
-      "client_id": 1,
-      "product_id": 3,
-      "product_name": "Vinyl Madonna",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 4,
-      "client_id": 1,
-      "product_id": 4,
-      "product_name": "Pendulum",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 5,
-      "client_id": 1,
-      "product_id": 5,
-      "product_name": "Piano",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 6,
-      "client_id": 1,
-      "product_id": 6,
-      "product_name": "Vinyl Madonna",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 7,
-      "client_id": 2,
-      "product_id": 1,
-      "product_name": "Queen Ticket",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 8,
-      "client_id": 2,
-      "product_id": 2,
-      "product_name": "Shirt",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    },
-    {
-      "command_id": 9,
-      "client_id": 2,
-      "product_id": 3,
-      "product_name": "Vinyl Madonna",
-      "command_date": "2019-01-01",
-      "command_status": "pending"
-    }
-  ]
+    "products": [
+        {
+            "product_id": 1,
+            "product_name": "Queen Ticket",
+            "product_description": "A ticket to the Queen concert",
+            "product_year": "1986",
+            "product_status": "good",
+            "product_price": 100
+        },
+        {
+            "product_id": 2,
+            "product_name": "Shirt",
+            "product_description": "Shirt which was worn by Freddie Mercury",
+            "product_year": "1986",
+            "product_status": "good",
+            "product_price": null
+        },
+        {
+            "product_id": 3,
+            "product_name": "Vinyl Madonna",
+            "product_description": "Vinyl of Madonna",
+            "product_year": "2004",
+            "product_status": "damage",
+            "product_price": 30
+        },
+        {
+            "product_id": 4,
+            "product_name": "Pendulum",
+            "product_description": "Pendulum from a historic castle",
+            "product_year": "1820",
+            "product_status": "bad",
+            "product_price": 240
+        },
+        {
+            "product_id": 5,
+            "product_name": "Piano",
+            "product_description": "Piano from beatles concert",
+            "product_year": "1965",
+            "product_status": "damage",
+            "product_price": 360
+        },
+        {
+            "product_id": 6,
+            "product_name": "Vinyl Madonna",
+            "product_description": "Vinyl of Madonna",
+            "product_year": "2004",
+            "product_status": "damage",
+            "product_price": 30
+        }
+    ],
+    "clients": [
+        {
+            "client_id": 4,
+            "client_first_name": "Pierre",
+            "client_last_name": "Dupont",
+            "client_email": "pierre.dupont@gmail.com"
+        }
+    ],
+    "commands": [
+        {
+            "command_id": 1,
+            "client_id": 1,
+            "product_id": 1,
+            "product_name": "Queen Ticket",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 2,
+            "client_id": 1,
+            "product_id": 2,
+            "product_name": "Shirt",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 3,
+            "client_id": 1,
+            "product_id": 3,
+            "product_name": "Vinyl Madonna",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 4,
+            "client_id": 1,
+            "product_id": 4,
+            "product_name": "Pendulum",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 5,
+            "client_id": 1,
+            "product_id": 5,
+            "product_name": "Piano",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 6,
+            "client_id": 1,
+            "product_id": 6,
+            "product_name": "Vinyl Madonna",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 7,
+            "client_id": 2,
+            "product_id": 1,
+            "product_name": "Queen Ticket",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 8,
+            "client_id": 2,
+            "product_id": 2,
+            "product_name": "Shirt",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        },
+        {
+            "command_id": 9,
+            "client_id": 2,
+            "product_id": 3,
+            "product_name": "Vinyl Madonna",
+            "command_date": "2019-01-01",
+            "command_status": "pending"
+        }
+    ]
 }

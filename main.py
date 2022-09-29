@@ -8,8 +8,6 @@ app.include_router(products.router)
 app.include_router(commands.router)
 app.include_router(clients.router)
 
-data = json.load(open("antique_dealer.json"))
-
 
 @app.get("/")
 async def root():
@@ -23,4 +21,5 @@ async def say_hello(client_first_name: str):
 
 @app.get("/antique_dealer")
 async def get_antique_dealer():
-    return data
+    data = json.load(open("antique_dealer.json"))
+    return data["commands"]

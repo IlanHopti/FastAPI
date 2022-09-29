@@ -40,7 +40,6 @@ async def delete_client(client_id: int):
     raise HTTPException(status_code=404, detail="user not found")
 
 
-
 @router.get("/")
 async def get_client():
     data = json.load(open("antique_dealer.json"))

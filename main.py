@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 import json
 import products, commands, clients
 
@@ -10,12 +11,12 @@ app.include_router(clients.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Bienvenue sur Antique Dealer!!"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+@app.get("/clients/{client_first_name}")
+async def say_hello(client_first_name: str):
+    return {"message": f"Hello {client_first_name}"}
 
 
 @app.get("/antique_dealer")

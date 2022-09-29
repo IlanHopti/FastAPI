@@ -15,6 +15,11 @@ def write_db(data2):
         json.dump(data2, f, ensure_ascii=False, indent=4)
 
 
+def write_db(data2):
+    with open("antique_dealer.json", "w", encoding='utf-8') as f:
+        json.dump(data2, f, ensure_ascii=False, indent=4)
+
+
 # Commands #
 
 @router.get("/{command_id}")
@@ -25,6 +30,16 @@ async def get_command_by_id(command_id: int):
             return command
     if command_id not in data['commands']:
         return {"message": f"Command_id : {command_id} not found"}
+
+
+@router.delete("/{command_id}")
+async def delete_command_by_id(command_id: str):
+    data.json.load(open("antique_dealer.json"))
+    for command in data['commands']:
+        if command['command_id'] == command_id:
+            data['commands'].remove(command)
+            write_db(data)
+            return {"command": [f"Command n°{command_id} deleted"]}
 
 
 # Create a new command #

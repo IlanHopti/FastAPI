@@ -1,4 +1,4 @@
-from fastapi import FastAPI,APIRouter
+from fastapi import FastAPI, APIRouter,HTTPException
 from pydantic import BaseModel
 from uuid import UUID
 import json
@@ -30,20 +30,17 @@ async def create_client(client: Client):
 
 
 @router.delete("/{client_id}")
-async def delete_client_by_id(client_id: int):
-    return {"client": [f"Suppression du client n°{client_id}"]}
-
-
-@router.delete("/{client_id}")
-async def delete_client_by_id(client_id: str):
-    data.json.load(open("antique_dealer.json"))
-    for command in data['clients']:
-        if command['client_id'] == client_id:
-            data['clients'].remove(command)
+async def delete_client(client_id: int):
+    data = json.load(open("antique_dealer.json"))
+    for client in data['clients']:
+        if client["client_id"] == client_id:
+            data['clients'].remove(client)
             write_db(data)
-            return {"client": [f"Client n°{client_id} deleted"]}
+        return {f"the {client_id} as been deleted"}
+    raise HTTPException(status_code=404, detail="user not found")
 
 
 @router.get("/")
 async def get_client():
+    data = json.load(open("antique_dealer.json"))
     return data['clients']

@@ -1,6 +1,5 @@
 from fastapi import FastAPI, APIRouter, HTTPException
 from pydantic import BaseModel
-from uuid import UUID
 import json
 
 router = APIRouter(
@@ -8,7 +7,6 @@ router = APIRouter(
 )
 
 app = FastAPI()
-data = json.load(open("antique_dealer.json"))
 
 
 def write_db(data2):
@@ -16,18 +14,39 @@ def write_db(data2):
         json.dump(data2, f, ensure_ascii=False, indent=4)
 
 
+# create a new client #
+def get_last_client_id():
+    data = json.load(open("antique_dealer.json"))
+    return data["clients"][-1]["client_id"]
+
+
 class Client(BaseModel):
-    client_id: UUID
+    client_id: int | None = None
     client_first_name: str
     client_last_name: str
-    client_mail: str
+    client_email: str
 
 
-@router.post("/")
-async def create_client(client: Client):
+@router.post("/{client_id}")
+async def create_client(client_id: int, client: Client):
+    id_taken = False
     data = json.load(open("antique_dealer.json"))
-    data['clients'].append(client.dict())
-    return {"client": client}
+    client.client_id = client_id
+    for clients in data['clients']:
+        if client.client_id == clients['client_id']:
+            client.client_id = get_last_client_id() + 1
+            id_taken = True
+    if id_taken:
+        data['clients'].append(client.dict())
+        write_db(data)
+        return {"created client": f"The id {client_id} was already taken,"
+                                  f" your client id has been changed to {client.client_id}",
+                "new client": client,
+                "all clients": data['clients']}
+    else:
+        data['clients'].append(client.dict())
+        write_db(data)
+        return {"created client": client, "all clients": data['clients']}
 
 
 # update a client
@@ -52,8 +71,8 @@ async def update_client(client_id: int, updated_client: ClientUpdate):
             client['client_last_name'] = updated_client.client_last_name
             client['client_email'] = updated_client.client_email
             write_db(data)
-            return client
-    raise HTTPException(status_code=404, detail="Client not found")
+            return {"detail": "Client updated", "client": client}
+    raise HTTPException(status_code=404, detail=f"client with id {client_id} not found")
 
 
 # delete a client #
@@ -65,8 +84,8 @@ async def delete_client(client_id: int):
         if client["client_id"] == client_id:
             data['clients'].remove(client)
             write_db(data)
-        return {f"the {client_id} as been deleted"}
-    raise HTTPException(status_code=404, detail="user not found")
+            return {"detail": f"the {client_id} as been deleted", "client": data['clients']}
+    raise HTTPException(status_code=404, detail=f"client not found with id {client_id}")
 
 
 # get a client by id #

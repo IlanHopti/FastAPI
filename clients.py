@@ -68,7 +68,16 @@ async def delete_client(client_id: int):
         return {f"the {client_id} as been deleted"}
     raise HTTPException(status_code=404, detail="user not found")
 
+
 # get a client by id #
+@router.get("/{client_id}")
+async def get_client_by_id(client_id: int):
+    data = json.load(open("antique_dealer.json"))
+    for client in data['clients']:
+        if client['client_id'] == client_id:
+            return client
+    if client_id not in data['clients']:
+        return {"message": f"client_id : {client_id} not found"}
 
 
 @router.get("/")

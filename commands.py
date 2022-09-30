@@ -15,7 +15,7 @@ def write_db(data2):
         json.dump(data2, f, ensure_ascii=False, indent=4)
 
 
-# Commands #
+# Get command by id #
 
 @router.get("/{command_id}")
 async def get_command_by_id(command_id: int):
@@ -25,6 +25,14 @@ async def get_command_by_id(command_id: int):
             return command
     if command_id not in data['commands']:
         return {"message": f"Command_id : {command_id} not found"}
+
+
+# Get all commands #
+
+@router.get("/")
+async def get_antique_dealer():
+    data = json.load(open("antique_dealer.json"))
+    return data["commands"]
 
 
 # Create a new command #

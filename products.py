@@ -78,3 +78,8 @@ async def delete_product(product_id: int):
             return {"message": f"Product {product_id} deleted"}
     if product_id not in data['products']:
         return {"message": f"Product {product_id} not found"}
+
+@router.get("/")
+async def get_product():
+    data = json.load(open("antique_dealer.json"))
+    return data['products']

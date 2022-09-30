@@ -18,8 +18,3 @@ async def root():
 async def say_hello(client_first_name: str):
     return {"message": f"Hello {client_first_name}"}
 
-
-@app.get("/antique_dealer")
-async def get_antique_dealer():
-    data = json.load(open("antique_dealer.json"))
-    return data["commands"]

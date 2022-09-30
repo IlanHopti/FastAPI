@@ -29,8 +29,13 @@ async def get_command_by_id(command_id: int):
 
 # Create a new command #
 
+def get_last_command_id():
+    data = json.load(open("antique_dealer.json"))
+    return data["commands"][-1]["command_id"]
+
+
 class Command(BaseModel):
-    command_id: int
+    command_id: int | None = None
     client_id: int
     product_id: int
     product_name: str
@@ -38,12 +43,26 @@ class Command(BaseModel):
     command_status: str
 
 
-@router.post("/")
-async def create_command(command: Command):
+@router.post("/{command_id}")
+async def create_command(command_id: int, command: Command):
+    id_taken = False
     data = json.load(open("antique_dealer.json"))
-    data['commands'].append(command.dict())
-    write_db(data)
-    return data['commands']
+    command.command_id = command_id
+    for commands in data['commands']:
+        if command.command_id == commands['command_id']:
+            command.command_id = get_last_command_id() + 1
+            id_taken = True
+    if id_taken:
+        data['commands'].append(command.dict())
+        write_db(data)
+        return {"created command": f"The id {command_id} was already taken,"
+                                   f" your command id has been changed to {command.command_id}",
+                "new command": command,
+                "all commands": data['commands']}
+    else:
+        data['commands'].append(command.dict())
+        write_db(data)
+        return {"created command": command, "all commands": data['commands']}
 
 
 # Update a command #
@@ -60,6 +79,8 @@ async def update_command(command_id: int, updated_command: CommandUpdate):
             command['command_status'] = updated_command.command_status
             write_db(data)
             return command
+    if command_id not in data['commands']:
+        return {"message": f"Command_id : {command_id} not found"}
 
 
 # Delete a command #
@@ -72,3 +93,5 @@ async def delete_command(command_id: int):
             data['commands'].remove(command)
             write_db(data)
             return {"message": f"Command {command_id} deleted", "command": data['commands']}
+    if command_id not in data['commands']:
+        return {"message": f"Command_id : {command_id} not found"}
